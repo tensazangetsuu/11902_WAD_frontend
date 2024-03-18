@@ -1,1 +1,41 @@
-<p>create works!</p>
+<div class="p-8 mt-8 flex justify-center">
+  <form class="shadow border w-4/12 p-4">
+    <div class="flex">
+      <mat-form-field class="w-full">
+        <mat-label>Title </mat-label>
+        <input
+          matInput
+          name="title"
+          type="text"
+          [(ngModel)]="createPost.title"
+        />
+      </mat-form-field>
+    </div>
+    <div class="flex">
+      <mat-form-field class="w-full">
+        <mat-label>Content </mat-label>
+        <input
+          matInput
+          name="content"
+          type="text"
+          [(ngModel)]="createPost.content"
+        />
+      </mat-form-field>
+    </div>
+    <div class="flex">
+      <mat-form-field class="w-full">
+        <mat-label>Choose Tag</mat-label>
+        <mat-select [(ngModel)]="cID" name="Tag">
+          @for(c of cate; track c) {
+          <mat-option [value]="c.id">{{ c.name }}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="flex justify-center">
+      <button mat-raised-button color="primary" (click)="create()">
+        Create
+      </button>
+    </div>
+  </form>
+</div>
