@@ -23,7 +23,7 @@ import { Router } from '@angular/router';
   styleUrl: './create.component.css',
 })
 export class CreateComponent {
-  todoService = inject(ServiceBlogService);
+  blogService = inject(ServiceBlogService);
 
   // Needed after succesfull creation
   router = inject(Router);
@@ -42,13 +42,17 @@ export class CreateComponent {
   };
 
   ngOnInit() {
-    this.todoService.getAllTags().subscribe((result) => {
+    this.blogService.getAllTags().subscribe((result) => {
+      console.log(result);
+
       this.cate = result;
     });
   }
   create() {
-    this.createPost.categoryID = this.cID;
-    this.todoService.create(this.createPost).subscribe((result) => {
+    this.createPost.tagID = this.cID;
+    console.log(this.createPost);
+
+    this.blogService.create(this.createPost).subscribe((result) => {
       alert('Item Saved');
       this.router.navigateByUrl('home');
     });

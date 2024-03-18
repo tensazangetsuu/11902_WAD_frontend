@@ -27,7 +27,7 @@
         <mat-label>Choose Tag</mat-label>
         <mat-select [(ngModel)]="cID" name="Tag">
           @for(c of cate; track c) {
-          <mat-option [value]="c.id">{{ c.name }}</mat-option>
+          <mat-option [value]="c.id">{{ c.title }}</mat-option>
           }
         </mat-select>
       </mat-form-field>
