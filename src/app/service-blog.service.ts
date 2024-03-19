@@ -28,4 +28,17 @@ export class ServiceBlogService {
   getAllTags() {
     return this.httpClient.get<Tag[]>('https://localhost:7224/api/Tags');
   }
+
+  getTagByID(id: number) {
+    return this.httpClient.get<Post>('https://localhost:7224/api/Tags/' + id);
+  }
+  editTag(item: Post) {
+    return this.httpClient.put('https://localhost:7224/api/Tags', item);
+  }
+  deleteTag(id: number) {
+    return this.httpClient.delete('https://localhost:7224/api/Tags/' + id);
+  }
+  createTag(item: Post) {
+    return this.httpClient.post<Post>('https://localhost:7224/api/Tags', item);
+  }
 }

@@ -16,7 +16,13 @@ export class NavigationComponent {
   CreateClicked() {
     this.router.navigateByUrl('create');
   }
+  CreateTagClicked() {
+    this.router.navigateByUrl('tag-create');
+  }
   onHomeIconClicked() {
     this.router.navigateByUrl('home');
+  }
+  TagsClicked() {
+    this.router.navigateByUrl('tag-home');
   }
 }
