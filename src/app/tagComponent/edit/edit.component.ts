@@ -22,7 +22,7 @@ import { Post } from '../../BlogTypes';
   styleUrl: './edit.component.css'
 })
 export class EditTagComponent implements OnInit {
-  todoService = inject(ServiceBlogService); // Service to get and send data from and to the API
+  blogService = inject(ServiceBlogService); // Service to get and send data from and to the API
   activatedRoute = inject(ActivatedRoute);
   router = inject(Router);
   editTag: any = {
@@ -30,8 +30,8 @@ export class EditTagComponent implements OnInit {
       title: ''
   };
   ngOnInit() {
-    this.todoService
-      .getByID(this.activatedRoute.snapshot.params['id'])
+    this.blogService
+      .getTagByID(this.activatedRoute.snapshot.params['id'])
       .subscribe((result) => {
         this.editTag = result;
       });
@@ -42,7 +42,7 @@ export class EditTagComponent implements OnInit {
   }
 
   edit() {
-    this.todoService.edit(this.editTag).subscribe((res) => {
+    this.blogService.editTag(this.editTag).subscribe((res) => {
       alert('Changes has been updated');
       this.router.navigateByUrl('home');
     });
